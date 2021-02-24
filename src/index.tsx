@@ -23,6 +23,7 @@ export interface DocViewerProps {
   config?: IConfig;
   theme?: ITheme;
   pluginRenderers?: DocRenderer[];
+  initialFileNo?: number;
 }
 
 const DocViewer: FC<DocViewerProps> = (props) => {
