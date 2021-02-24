@@ -20,7 +20,7 @@ const DocViewerContext = createContext<{
 }>({ state: initialState, dispatch: () => null });
 
 const AppProvider: FC<DocViewerProps> = (props) => {
-  const { children, documents, config, pluginRenderers, initialFileNo } = props;
+  const { children, documents, config, pluginRenderers, initialFileNo = 0 } = props;
 
   const [state, dispatch] = useReducer<MainStateReducer>(mainStateReducer, {
     ...initialState,
