@@ -1,5 +1,5 @@
-import { IMainState } from "../../../state/reducer";
-import { PDFActions as PDFStateActions } from "./actions";
+import { IMainState } from '../../../state/reducer';
+import { PDFActions as PDFStateActions } from './actions';
 export declare type IPDFState = {
     zoomLevel: number;
     paginated: boolean;
