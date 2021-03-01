@@ -1,5 +1,5 @@
-import { DocRenderer, IConfig, IDocument } from "../types";
-import { MainStateActions } from "./actions";
+import { DocRenderer, IConfig, IDocument } from '../types';
+import { MainStateActions } from './actions';
 export declare type IMainState = {
     currentFileNo: number;
     documents: IDocument[];

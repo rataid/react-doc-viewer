@@ -27,7 +27,7 @@ exports.mainStateReducer = function (state, action) {
     switch (action.type) {
         case actions_1.SET_ALL_DOCUMENTS: {
             var documents = action.documents;
-            return __assign(__assign({}, state), { documents: documents, currentDocument: documents[0] || null });
+            return __assign(__assign({}, state), { documents: documents, currentDocument: documents[state.currentFileNo] || null });
         }
         case actions_1.SET_DOCUMENT_LOADING: {
             var value = action.value;
