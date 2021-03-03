@@ -21,9 +21,13 @@ var MSDocRenderer = function (_a) {
     if (!currentDocument)
         return null;
     return (react_1.default.createElement(Container, { id: "msdoc-renderer" },
-        react_1.default.createElement(IFrame, { id: "msdoc-iframe", title: "msdoc-iframe", src: "https://view.officeapps.live.com/op/embed.aspx?src=" + encodeURIComponent(currentDocument.uri), frameBorder: "0" })));
+        react_1.default.createElement(MSDocIframe, { src: "https://view.officeapps.live.com/op/embed.aspx?src=" + encodeURIComponent(currentDocument.uri) })));
 };
-exports.default = react_1.default.memo(MSDocRenderer);
+var MSDocIframe = react_1.default.memo(function (_a) {
+    var src = _a.src;
+    return (react_1.default.createElement(IFrame, { id: "msdoc-iframe", title: "msdoc-iframe", src: src, frameBorder: "0" }));
+});
+exports.default = MSDocRenderer;
 var MSDocFTMaps = {
     doc: ['doc', 'application/msword'],
     docx: [

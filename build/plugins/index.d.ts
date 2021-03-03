@@ -1,2 +1,1 @@
-/// <reference types="react" />
-export declare const DocViewerRenderers: (import("..").DocRenderer | import("react").NamedExoticComponent<import("..").DocRendererProps>)[];
+export declare const DocViewerRenderers: import("..").DocRenderer[];

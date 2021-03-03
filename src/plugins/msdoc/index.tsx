@@ -7,19 +7,32 @@ const MSDocRenderer: DocRenderer = ({ mainState: { currentDocument } }) => {
 
 	return (
 		<Container id="msdoc-renderer">
-			<IFrame
-				id="msdoc-iframe"
-				title="msdoc-iframe"
+			<MSDocIframe
 				src={`https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(
 					currentDocument.uri
 				)}`}
-				frameBorder="0"
 			/>
 		</Container>
 	);
 };
 
-export default React.memo(MSDocRenderer);
+interface MSDocIframeProps {
+	src: string;
+}
+const MSDocIframe: React.FC<MSDocIframeProps> = React.memo(
+	({ src }: MSDocIframeProps) => {
+		return (
+			<IFrame
+				id="msdoc-iframe"
+				title="msdoc-iframe"
+				src={src}
+				frameBorder="0"
+			/>
+		);
+	}
+);
+
+export default MSDocRenderer;
 
 const MSDocFTMaps = {
 	doc: ['doc', 'application/msword'],
