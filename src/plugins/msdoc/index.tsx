@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import { DocRenderer } from '../../types';
 
 const MSDocRenderer: DocRenderer = ({ mainState: { currentDocument } }) => {
+	console.log('NEW STATE BEFORE NULLZ');
 	if (!currentDocument) return null;
-
+	console.log('NEW STATE AFTER NULLZ');
 	return (
 		<Container id="msdoc-renderer">
 			<MSDocIframe

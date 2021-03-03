@@ -18,8 +18,10 @@ var react_1 = __importDefault(require("react"));
 var styled_components_1 = __importDefault(require("styled-components"));
 var MSDocRenderer = function (_a) {
     var currentDocument = _a.mainState.currentDocument;
+    console.log('NEW STATE BEFORE NULLZ');
     if (!currentDocument)
         return null;
+    console.log('NEW STATE AFTER NULLZ');
     return (react_1.default.createElement(Container, { id: "msdoc-renderer" },
         react_1.default.createElement(MSDocIframe, { src: "https://view.officeapps.live.com/op/embed.aspx?src=" + encodeURIComponent(currentDocument.uri) })));
 };
