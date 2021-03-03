@@ -1,9 +1,10 @@
-import { FC, ReactElement } from "react";
-import { ThemedStyledProps } from "styled-components";
-import { IMainState } from "../state/reducer";
-import { FileLoaderFunction } from "../utils/fileLoaders";
+import { FC, ReactElement } from 'react';
+import { ThemedStyledProps } from 'styled-components';
+import { IMainState } from '../state/reducer';
+import { FileLoaderFunction } from '../utils/fileLoaders';
 export interface IConfig {
     header?: IHeaderConfig;
+    noRenderer?: INoRendererConfig;
 }
 export interface IHeaderConfig {
     disableHeader?: boolean;
@@ -11,7 +12,11 @@ export interface IHeaderConfig {
     retainURLParams?: boolean;
     overrideComponent?: IHeaderOverride;
 }
+export interface INoRendererConfig {
+    overrideComponent?: INoRendererOverride;
+}
 export declare type IHeaderOverride = (state: IMainState, previousDocument: () => void, nextDocument: () => void) => ReactElement<any, any> | null;
+export declare type INoRendererOverride = (state: IMainState) => ReactElement<any, any> | null;
 export interface ITheme {
     primary?: string;
     secondary?: string;

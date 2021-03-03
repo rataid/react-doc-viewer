@@ -32,14 +32,16 @@ var useWindowSize_1 = require("../utils/useWindowSize");
 var common_1 = require("./common");
 var icons_1 = require("./icons");
 exports.ProxyRenderer = function () {
-    var _a = useDocumentLoader_1.useDocumentLoader(), state = _a.state, dispatch = _a.dispatch, CurrentRenderer = _a.CurrentRenderer;
-    var documents = state.documents, documentLoading = state.documentLoading, currentDocument = state.currentDocument;
+    var _a, _b;
+    var _c = useDocumentLoader_1.useDocumentLoader(), state = _c.state, dispatch = _c.dispatch, CurrentRenderer = _c.CurrentRenderer;
+    var documents = state.documents, documentLoading = state.documentLoading, currentDocument = state.currentDocument, config = state.config;
     var size = useWindowSize_1.useWindowSize();
     var containerRef = react_1.useCallback(function (node) {
         node && dispatch(actions_1.setRendererRect(node === null || node === void 0 ? void 0 : node.getBoundingClientRect()));
     }, 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [size]);
+    var overrideNoRender = (_b = (_a = config === null || config === void 0 ? void 0 : config.noRenderer) === null || _a === void 0 ? void 0 : _a.overrideComponent) === null || _b === void 0 ? void 0 : _b.call(_a, state);
     var Contents = function () {
         if (!documents.length) {
             return react_1.default.createElement("div", { id: "no-documents" });
@@ -57,6 +59,9 @@ exports.ProxyRenderer = function () {
                 return null;
             }
             else {
+                if (overrideNoRender) {
+                    return overrideNoRender;
+                }
                 return (react_1.default.createElement("div", { id: "no-renderer", "data-testid": "no-renderer" },
                     "No Renderer for file type ", currentDocument === null || currentDocument === void 0 ? void 0 :
                     currentDocument.fileType,
@@ -67,9 +72,9 @@ exports.ProxyRenderer = function () {
     return (react_1.default.createElement(Container, { id: "proxy-renderer", ref: containerRef },
         react_1.default.createElement(Contents, null)));
 };
-var Container = styled_components_1.default.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  display: flex;\n  flex: 1;\n  overflow-y: auto;\n"], ["\n  display: flex;\n  flex: 1;\n  overflow-y: auto;\n"])));
-var LoadingContainer = styled_components_1.default.div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  display: flex;\n  flex: 1;\n  height: 75px;\n  align-items: center;\n  justify-content: center;\n"], ["\n  display: flex;\n  flex: 1;\n  height: 75px;\n  align-items: center;\n  justify-content: center;\n"])));
+var Container = styled_components_1.default.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n\tdisplay: flex;\n\tflex: 1;\n\toverflow-y: auto;\n"], ["\n\tdisplay: flex;\n\tflex: 1;\n\toverflow-y: auto;\n"])));
+var LoadingContainer = styled_components_1.default.div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n\tdisplay: flex;\n\tflex: 1;\n\theight: 75px;\n\talign-items: center;\n\tjustify-content: center;\n"], ["\n\tdisplay: flex;\n\tflex: 1;\n\theight: 75px;\n\talign-items: center;\n\tjustify-content: center;\n"])));
 var spinAnim = styled_components_1.keyframes(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n"], ["\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n"])));
-var LoadingIconContainer = styled_components_1.default.div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  animation-name: ", ";\n  animation-duration: 4s;\n  animation-timing-function: linear;\n  animation-iteration-count: infinite;\n"], ["\n  animation-name: ", ";\n  animation-duration: 4s;\n  animation-timing-function: linear;\n  animation-iteration-count: infinite;\n"])), spinAnim);
-var DownloadButton = styled_components_1.default(common_1.LinkButton)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  width: 130px;\n  height: 30px;\n  background-color: ", ";\n  @media (max-width: 768px) {\n    width: 125px;\n    height: 25px;\n  }\n"], ["\n  width: 130px;\n  height: 30px;\n  background-color: ", ";\n  @media (max-width: 768px) {\n    width: 125px;\n    height: 25px;\n  }\n"])), function (props) { return props.theme.primary; });
+var LoadingIconContainer = styled_components_1.default.div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n\tanimation-name: ", ";\n\tanimation-duration: 4s;\n\tanimation-timing-function: linear;\n\tanimation-iteration-count: infinite;\n"], ["\n\tanimation-name: ", ";\n\tanimation-duration: 4s;\n\tanimation-timing-function: linear;\n\tanimation-iteration-count: infinite;\n"])), spinAnim);
+var DownloadButton = styled_components_1.default(common_1.LinkButton)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n\twidth: 130px;\n\theight: 30px;\n\tbackground-color: ", ";\n\t@media (max-width: 768px) {\n\t\twidth: 125px;\n\t\theight: 25px;\n\t}\n"], ["\n\twidth: 130px;\n\theight: 30px;\n\tbackground-color: ", ";\n\t@media (max-width: 768px) {\n\t\twidth: 125px;\n\t\theight: 25px;\n\t}\n"])), function (props) { return props.theme.primary; });
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;

@@ -5,7 +5,7 @@ import { FileLoaderFunction } from '../utils/fileLoaders';
 
 export interface IConfig {
 	header?: IHeaderConfig;
-	noRenderer: INoRendererConfig;
+	noRenderer?: INoRendererConfig;
 }
 export interface IHeaderConfig {
 	disableHeader?: boolean;
