@@ -78,8 +78,8 @@ var DocViewer = function (props) {
                 react_1.default.createElement(HeaderBar_1.HeaderBar, null),
                 react_1.default.createElement(ProxyRenderer_1.ProxyRenderer, null)))));
 };
-exports.default = DocViewer;
-var Container = styled_components_1.default.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n  background: #eee;\n"], ["\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n  background: #eee;\n"])));
+exports.default = react_1.default.memo(DocViewer);
+var Container = styled_components_1.default.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n\tdisplay: flex;\n\tflex-direction: column;\n\toverflow: hidden;\n\tbackground: #eee;\n"], ["\n\tdisplay: flex;\n\tflex-direction: column;\n\toverflow: hidden;\n\tbackground: #eee;\n"])));
 var plugins_1 = require("./plugins");
 Object.defineProperty(exports, "DocViewerRenderers", { enumerable: true, get: function () { return plugins_1.DocViewerRenderers; } });
 __exportStar(require("./types"), exports);
