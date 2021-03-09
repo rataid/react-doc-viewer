@@ -15,7 +15,7 @@ exports.reducer = exports.initialPDFState = void 0;
 var actions_1 = require("./actions");
 exports.initialPDFState = {
     zoomLevel: 1,
-    paginated: false,
+    paginated: true,
     numPages: 0,
     currentPage: 1,
 };
