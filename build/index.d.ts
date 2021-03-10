@@ -18,6 +18,7 @@ export interface DocViewerProps {
     theme?: ITheme;
     pluginRenderers?: DocRenderer[];
     initialFileNo?: number;
+    onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 declare const _default: React.NamedExoticComponent<DocViewerProps>;
 export default _default;

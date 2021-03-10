@@ -25,8 +25,7 @@ var MSDocRenderer = function (_a) {
 };
 var MSDocIframe = function (_a) {
     var src = _a.src;
-    console.log('NEWSRXZZZ', src);
-    return react_1.default.useMemo(function () { return (react_1.default.createElement(IFrame, { id: "msdoc-iframe", title: "msdoc-iframe", src: src, frameBorder: "0" })); }, [src]);
+    return react_1.default.useMemo(function () { return (react_1.default.createElement(IFrame, { key: "msdoc-iframe", id: "msdoc-iframe", title: "msdoc-iframe", src: src, frameBorder: "0" })); }, [src]);
 };
 exports.default = MSDocRenderer;
 var MSDocFTMaps = {

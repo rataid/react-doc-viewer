@@ -24,10 +24,11 @@ export interface DocViewerProps {
 	theme?: ITheme;
 	pluginRenderers?: DocRenderer[];
 	initialFileNo?: number;
+	onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 
 const DocViewer: FC<DocViewerProps> = (props) => {
-	const { documents, theme } = props;
+	const { documents, theme, onClick } = props;
 
 	if (!documents || documents === undefined) {
 		throw new Error(
@@ -35,12 +36,20 @@ const DocViewer: FC<DocViewerProps> = (props) => {
 		);
 	}
 
+	const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+		e.stopPropagation();
+		if (onClick) {
+			onClick(e);
+		}
+	};
+
 	return (
 		<AppProvider {...props}>
 			<ThemeProvider
 				theme={theme ? { ...defaultTheme, ...theme } : defaultTheme}
 			>
 				<Container
+					onClick={handleClick}
 					id="react-doc-viewer"
 					data-testid="react-doc-viewer"
 					{...props}

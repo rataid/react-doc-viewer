@@ -20,10 +20,10 @@ interface MSDocIframeProps {
 	src: string;
 }
 const MSDocIframe: React.FC<MSDocIframeProps> = ({ src }: MSDocIframeProps) => {
-	console.log('NEWSRXZZZ', src);
 	return React.useMemo(
 		() => (
 			<IFrame
+				key="msdoc-iframe"
 				id="msdoc-iframe"
 				title="msdoc-iframe"
 				src={src}
