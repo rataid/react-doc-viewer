@@ -1,3 +1,3 @@
-import { DocRenderer } from "../../types";
+import { DocRenderer } from '../../types';
 declare const TXTRenderer: DocRenderer;
 export default TXTRenderer;
