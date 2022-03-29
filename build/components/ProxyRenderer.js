@@ -53,9 +53,6 @@ exports.ProxyRenderer = function () {
             if (CurrentRenderer) {
                 return react_1.default.createElement(CurrentRenderer, { mainState: state });
             }
-            else if (CurrentRenderer === undefined) {
-                return null;
-            }
             else {
                 return (react_1.default.createElement("div", { id: "no-renderer", "data-testid": "no-renderer" },
                     "No Renderer for file type ", currentDocument === null || currentDocument === void 0 ? void 0 :

@@ -35,8 +35,6 @@ export const ProxyRenderer: FC<{}> = () => {
     } else {
       if (CurrentRenderer) {
         return <CurrentRenderer mainState={state} />;
-      } else if (CurrentRenderer === undefined) {
-        return null;
       } else {
         return (
           <div id="no-renderer" data-testid="no-renderer">
