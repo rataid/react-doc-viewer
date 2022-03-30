@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { DocRenderer } from "../../types";
-import PDFControls from "../pdf/components/PDFControls";
 
 const ImageProxyRenderer: DocRenderer = (props) => {
   const {
@@ -14,10 +13,7 @@ const ImageProxyRenderer: DocRenderer = (props) => {
   return (
     <Container id="image-renderer" {...props}>
       {children || (
-        <>
-          <PDFControls />
-          <Img id="image-img" src={currentDocument.fileData as string} />
-        </>
+        <Img id="image-img" src={currentDocument.fileData as string} />
       )}
     </Container>
   );

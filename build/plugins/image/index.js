@@ -20,14 +20,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var styled_components_1 = __importDefault(require("styled-components"));
-var PDFControls_1 = __importDefault(require("../pdf/components/PDFControls"));
 var ImageProxyRenderer = function (props) {
     var currentDocument = props.mainState.currentDocument, children = props.children;
     if (!currentDocument)
         return null;
-    return (react_1.default.createElement(Container, __assign({ id: "image-renderer" }, props), children || (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement(PDFControls_1.default, null),
-        react_1.default.createElement(Img, { id: "image-img", src: currentDocument.fileData })))));
+    return (react_1.default.createElement(Container, __assign({ id: "image-renderer" }, props), children || (react_1.default.createElement(Img, { id: "image-img", src: currentDocument.fileData }))));
 };
 exports.default = ImageProxyRenderer;
 ImageProxyRenderer.fileTypes = [];
